@@ -52,7 +52,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="section-padding relative bg-surface/30">
+    <section id="contact" className="section-padding relative">
       <div className="max-w-7xl mx-auto" ref={ref}>
         <SectionHeading
           label="Get In Touch"
@@ -60,30 +60,30 @@ export default function Contact() {
           description="Have a project in mind? Let's discuss how I can help bring your vision to life"
         />
 
-        <div className="grid lg:grid-cols-5 gap-12">
+        <div className="grid lg:grid-cols-5 gap-10">
           {/* Contact info */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
             className="lg:col-span-2 space-y-8"
           >
-            <div className="space-y-6">
+            <div className="space-y-5">
               {contactInfo.map(({ icon: Icon, label, value, href }, i) => (
                 <motion.a
                   key={label}
                   href={href}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
                   className="flex items-center gap-4 group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Icon size={20} className="text-primary-light" />
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300 shrink-0">
+                    <Icon size={18} className="text-primary-light" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted">{label}</p>
-                    <p className="text-foreground font-medium group-hover:text-primary-light transition-colors">
+                    <p className="text-xs text-muted uppercase tracking-wider">{label}</p>
+                    <p className="text-foreground text-sm font-medium group-hover:text-primary-light transition-colors duration-300">
                       {value}
                     </p>
                   </div>
@@ -92,39 +92,39 @@ export default function Contact() {
             </div>
 
             <div>
-              <p className="text-sm text-muted mb-4">Follow me</p>
-              <div className="flex gap-3">
+              <p className="text-xs text-muted mb-3 uppercase tracking-wider">Follow me</p>
+              <div className="flex gap-2.5">
                 {socials.map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-11 h-11 rounded-xl border border-border flex items-center justify-center text-muted hover:text-foreground hover:border-primary-light hover:bg-primary/10 transition-all duration-300"
+                    className="w-10 h-10 rounded-xl border border-border flex items-center justify-center text-muted hover:text-foreground hover:border-primary-light hover:bg-primary/10 transition-all duration-300"
                     aria-label={label}
                   >
-                    <Icon size={18} />
+                    <Icon size={16} />
                   </a>
                 ))}
               </div>
             </div>
 
             {/* CTA card */}
-            <div className="bg-gradient-to-br from-primary/20 to-accent/10 rounded-2xl p-6 border border-primary/20">
-              <h4 className="font-bold font-[family-name:var(--font-display)] text-lg">
+            <div className="card p-6 bg-gradient-to-br from-primary/10 to-accent/5 border-primary/15">
+              <h4 className="font-bold font-[family-name:var(--font-display)] text-base">
                 Ready to start a project?
               </h4>
-              <p className="text-muted text-sm mt-2">
+              <p className="text-muted text-sm mt-1.5 leading-relaxed">
                 Let&apos;s schedule a free consultation to discuss your requirements.
               </p>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 mt-4 text-primary-light font-medium text-sm group"
+                className="inline-flex items-center gap-1.5 mt-3 text-primary-light font-medium text-sm group"
               >
                 Book a call
                 <ArrowUpRight
-                  size={14}
-                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                  size={13}
+                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
                 />
               </a>
             </div>
@@ -132,15 +132,15 @@ export default function Contact() {
 
           {/* Contact form */}
           <motion.form
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
             onSubmit={handleSubmit}
-            className="lg:col-span-3 bg-surface rounded-2xl border border-border p-8 space-y-5"
+            className="lg:col-span-3 card p-7 space-y-4"
           >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="name" className="text-sm text-muted mb-2 block">
+                <label htmlFor="name" className="text-xs text-muted mb-1.5 block font-medium uppercase tracking-wider">
                   Name
                 </label>
                 <input
@@ -149,12 +149,12 @@ export default function Contact() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full px-4 py-3 bg-surface-light border border-border rounded-xl text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary-light transition-colors"
+                  className="input"
                   placeholder="John Doe"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="text-sm text-muted mb-2 block">
+                <label htmlFor="email" className="text-xs text-muted mb-1.5 block font-medium uppercase tracking-wider">
                   Email
                 </label>
                 <input
@@ -163,14 +163,14 @@ export default function Contact() {
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-surface-light border border-border rounded-xl text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary-light transition-colors"
+                  className="input"
                   placeholder="john@example.com"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="subject" className="text-sm text-muted mb-2 block">
+              <label htmlFor="subject" className="text-xs text-muted mb-1.5 block font-medium uppercase tracking-wider">
                 Subject
               </label>
               <input
@@ -179,13 +179,13 @@ export default function Contact() {
                 required
                 value={form.subject}
                 onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                className="w-full px-4 py-3 bg-surface-light border border-border rounded-xl text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary-light transition-colors"
+                className="input"
                 placeholder="Project Inquiry"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="text-sm text-muted mb-2 block">
+              <label htmlFor="message" className="text-xs text-muted mb-1.5 block font-medium uppercase tracking-wider">
                 Message
               </label>
               <textarea
@@ -195,29 +195,29 @@ export default function Contact() {
                 maxLength={1000}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full px-4 py-3 bg-surface-light border border-border rounded-xl text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary-light transition-colors resize-none"
+                className="input resize-none"
                 placeholder="Tell me about your project..."
               />
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between pt-2">
               <AnimatePresence>
                 {status === "success" && (
                   <motion.p
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="text-green-400 text-sm"
+                    className="text-green-500 text-sm font-medium"
                   >
                     Message sent successfully!
                   </motion.p>
                 )}
                 {status === "error" && (
                   <motion.p
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="text-red-400 text-sm"
+                    className="text-red-500 text-sm font-medium"
                   >
                     Failed to send. Please try again.
                   </motion.p>
@@ -227,10 +227,10 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="ml-auto px-8 py-3 bg-primary hover:bg-primary-light text-white rounded-xl font-medium flex items-center gap-2 transition-all duration-300 disabled:opacity-50 hover:shadow-lg hover:shadow-primary/25"
+                className="btn-primary ml-auto text-sm disabled:opacity-50"
               >
                 {submitting ? "Sending..." : "Send Message"}
-                <Send size={16} />
+                <Send size={15} />
               </button>
             </div>
           </motion.form>

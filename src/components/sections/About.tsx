@@ -14,13 +14,13 @@ function SkillBar({ name, level, delay }: { name: string; level: number; delay: 
     <div ref={ref} className="space-y-2">
       <div className="flex justify-between text-sm">
         <span className="text-foreground font-medium">{name}</span>
-        <span className="text-primary-light font-mono">{level}%</span>
+        <span className="text-primary-light font-mono text-xs">{level}%</span>
       </div>
-      <div className="h-2 bg-surface-light rounded-full overflow-hidden">
+      <div className="h-1.5 bg-border/50 rounded-full overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={isInView ? { width: `${level}%` } : {}}
-          transition={{ duration: 1, delay, ease: [0.76, 0, 0.24, 1] }}
+          transition={{ duration: 1.2, delay, ease: [0.76, 0, 0.24, 1] }}
           className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
         />
       </div>
@@ -49,36 +49,31 @@ function ExperienceCard({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+      initial={{ opacity: 0, x: -30 }}
       animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.2 }}
-      className="relative pl-8 border-l-2 border-border hover:border-primary-light transition-colors duration-300"
+      transition={{ duration: 0.5, delay: index * 0.15 }}
+      className="relative pl-8 border-l-2 border-border hover:border-primary-light/60 transition-colors duration-500"
     >
-      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background" />
+      <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-primary border-4 border-background transition-colors duration-300" />
 
-      <div className="bg-surface/50 rounded-2xl p-6 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+      <div className="card p-6">
         <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="px-3 py-1 bg-primary/10 text-primary-light text-xs font-mono rounded-full flex items-center gap-1">
-            <Calendar size={12} />
+          <span className="px-3 py-1 bg-primary/10 text-primary-light text-xs font-mono rounded-full flex items-center gap-1.5">
+            <Calendar size={11} />
             {period}
           </span>
         </div>
 
-        <h4 className="text-xl font-bold font-[family-name:var(--font-display)]">{role}</h4>
-        <p className="text-primary-light font-medium flex items-center gap-2 mt-1">
-          <Briefcase size={14} />
+        <h4 className="text-lg font-bold font-[family-name:var(--font-display)]">{role}</h4>
+        <p className="text-primary-light font-medium text-sm flex items-center gap-2 mt-1">
+          <Briefcase size={13} />
           {company}
         </p>
         <p className="text-muted mt-3 text-sm leading-relaxed">{description}</p>
 
-        <div className="flex flex-wrap gap-2 mt-4">
+        <div className="flex flex-wrap gap-1.5 mt-4">
           {tech.map((t) => (
-            <span
-              key={t}
-              className="px-2 py-1 bg-surface-light text-xs text-muted rounded-md border border-border"
-            >
-              {t}
-            </span>
+            <span key={t} className="tag">{t}</span>
           ))}
         </div>
       </div>
@@ -100,7 +95,6 @@ export default function About() {
         />
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* About text & skills */}
           <div ref={aboutRef}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -108,36 +102,35 @@ export default function About() {
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              <p className="text-muted text-lg leading-relaxed">{personalInfo.bio}</p>
+              <p className="text-muted text-base sm:text-lg leading-relaxed">{personalInfo.bio}</p>
 
-              <div className="flex flex-wrap gap-4 text-sm text-muted">
-                <span className="flex items-center gap-2">
-                  <MapPin size={16} className="text-primary-light" />
+              <div className="flex flex-wrap gap-5 text-sm">
+                <span className="flex items-center gap-2 text-muted">
+                  <MapPin size={15} className="text-primary-light" />
                   {personalInfo.location}
                 </span>
-                <span className="flex items-center gap-2">
-                  <GraduationCap size={16} className="text-primary-light" />
+                <span className="flex items-center gap-2 text-muted">
+                  <GraduationCap size={15} className="text-primary-light" />
                   B.Tech Computer Science
                 </span>
               </div>
             </motion.div>
 
-            <div className="mt-10 space-y-5">
-              <h3 className="text-xl font-bold font-[family-name:var(--font-display)] mb-6">
+            <div className="mt-12 space-y-4">
+              <h3 className="text-lg font-bold font-[family-name:var(--font-display)] mb-6">
                 Technical Skills
               </h3>
               {skills.map((skill, i) => (
-                <SkillBar key={skill.name} name={skill.name} level={skill.level} delay={i * 0.1} />
+                <SkillBar key={skill.name} name={skill.name} level={skill.level} delay={i * 0.08} />
               ))}
             </div>
           </div>
 
-          {/* Experience timeline */}
           <div>
-            <h3 className="text-xl font-bold font-[family-name:var(--font-display)] mb-8">
+            <h3 className="text-lg font-bold font-[family-name:var(--font-display)] mb-8">
               Experience
             </h3>
-            <div className="space-y-8">
+            <div className="space-y-6">
               {experiences.map((exp, i) => (
                 <ExperienceCard key={exp.company} {...exp} index={i} />
               ))}

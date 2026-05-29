@@ -11,7 +11,6 @@ const Scene3D = dynamic(() => import("@/components/Scene3D"), { ssr: false });
 
 export default function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!headingRef.current) return;
@@ -19,63 +18,68 @@ export default function Hero() {
     const chars = headingRef.current.querySelectorAll(".char");
     gsap.fromTo(
       chars,
-      { y: 100, opacity: 0, rotateX: -90 },
+      { y: 80, opacity: 0, rotateX: -80 },
       {
         y: 0,
         opacity: 1,
         rotateX: 0,
-        duration: 0.8,
-        stagger: 0.03,
-        ease: "back.out(1.7)",
-        delay: 1.8,
+        duration: 0.7,
+        stagger: 0.025,
+        ease: "back.out(1.4)",
+        delay: 1.6,
       }
     );
   }, []);
 
-  const splitText = (text: string) => {
-    return text.split("").map((char, i) => (
+  const splitText = (text: string) =>
+    text.split("").map((char, i) => (
       <span key={i} className="char inline-block" style={{ opacity: 0 }}>
         {char === " " ? "\u00A0" : char}
       </span>
     ));
-  };
 
   return (
     <section
       id="home"
-      ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       <Scene3D />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background z-[1]" />
+      {/* Gradient overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/70 to-background z-[1]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
+        {/* Status badge */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface/50 backdrop-blur-sm mb-8"
+          initial={{ opacity: 0, y: 15, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.5, delay: 1.0 }}
+          className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-border bg-surface/60 backdrop-blur-md mb-10"
         >
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-sm text-muted">Available for opportunities</span>
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400" />
+          </span>
+          <span className="text-sm text-muted font-medium">Available for opportunities</span>
         </motion.div>
 
+        {/* Heading */}
         <h1
           ref={headingRef}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-[family-name:var(--font-display)] leading-[1.1] mb-6"
+          className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold font-[family-name:var(--font-display)] leading-[1.05] tracking-tight mb-8"
         >
           <span className="block">{splitText("Hi, I'm")}</span>
-          <span className="block gradient-text mt-2">
+          <span className="block gradient-text mt-3">
             {splitText(personalInfo.name)}
           </span>
         </h1>
 
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 2.4 }}
-          className="text-xl md:text-2xl text-muted max-w-2xl mx-auto mb-4"
+          transition={{ duration: 0.6, delay: 2.2 }}
+          className="text-lg sm:text-xl md:text-2xl text-foreground/80 font-medium max-w-2xl mx-auto mb-3"
         >
           {personalInfo.title}
         </motion.p>
@@ -83,46 +87,42 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 2.6 }}
-          className="text-base md:text-lg text-muted/70 max-w-xl mx-auto mb-10"
+          transition={{ duration: 0.6, delay: 2.4 }}
+          className="text-sm sm:text-base md:text-lg text-muted max-w-xl mx-auto mb-12 leading-relaxed"
         >
           {personalInfo.tagline}
         </motion.p>
 
+        {/* CTA buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 2.8 }}
+          transition={{ duration: 0.6, delay: 2.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a
-            href="#contact"
-            className="group px-8 py-4 bg-primary hover:bg-primary-light text-white rounded-full font-medium flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-105"
-          >
+          <a href="#contact" className="btn-primary group text-base px-8 py-4">
             Get In Touch
-            <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+            <Send size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
           </a>
-          <a
-            href={personalInfo.resumeUrl}
-            className="group px-8 py-4 border border-border hover:border-primary-light/50 rounded-full font-medium flex items-center gap-2 transition-all duration-300 hover:bg-surface-light"
-          >
+          <a href={personalInfo.resumeUrl} className="btn-secondary group text-base px-8 py-4">
             Download CV
-            <Download size={18} className="group-hover:translate-y-0.5 transition-transform" />
+            <Download size={18} className="group-hover:translate-y-0.5 transition-transform duration-300" />
           </a>
         </motion.div>
 
+        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 3.2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          transition={{ duration: 0.8, delay: 3.0 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
           <a
             href="#about"
-            className="flex flex-col items-center gap-2 text-muted hover:text-primary-light transition-colors"
+            className="flex flex-col items-center gap-2 text-muted/60 hover:text-primary-light transition-colors duration-300"
           >
-            <span className="text-xs tracking-widest uppercase">Scroll</span>
-            <ArrowDown size={20} className="animate-bounce" />
+            <span className="text-[10px] tracking-[0.2em] uppercase font-medium">Scroll</span>
+            <ArrowDown size={18} className="animate-bounce" />
           </a>
         </motion.div>
       </div>
