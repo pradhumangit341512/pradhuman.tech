@@ -107,6 +107,78 @@ export const projects = [
     githubUrl: "#",
     featured: true,
   },
+  {
+    id: 5,
+    title: "AD Build Estate",
+    category: "Real Estate",
+    description:
+      "Corporate website for a real estate development company. Built with a modern design system featuring responsive layouts, interactive property showcases, and optimized lead generation — designed to establish brand authority in the property market.",
+    image: "/projects/adbuildestate.jpg",
+    tech: ["Framer", "React", "CSS3", "Responsive Design"],
+    liveUrl: "https://www.adbuildestate.com",
+    githubUrl: "#",
+    featured: true,
+  },
+  {
+    id: 6,
+    title: "MT Enterprises",
+    category: "Business",
+    description:
+      "Service-oriented business website for an RO water purification company in Jaipur. Features service catalog with 6 categories, WhatsApp inquiry integration, customer testimonials, and location-based SEO — built with Next.js for fast server-side rendering.",
+    image: "/projects/mtenterprises.jpg",
+    tech: ["Next.js", "Tailwind CSS", "SEO", "WhatsApp API"],
+    liveUrl: "https://mtenterprises.in",
+    githubUrl: "#",
+    featured: false,
+  },
+  {
+    id: 7,
+    title: "Kaka's Egg Corner",
+    category: "Food & Beverage",
+    description:
+      "Restaurant website for a popular egg-based food outlet. Features an interactive menu showcase, online ordering capabilities, location details, and a vibrant design that captures the brand's energetic personality.",
+    image: "/projects/kakaseggcorner.jpg",
+    tech: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+    liveUrl: "https://kakaseggcorner-fsi7xm25e-pradhuman-singhs-projects-f70305c7.vercel.app",
+    githubUrl: "#",
+    featured: false,
+  },
+  {
+    id: 8,
+    title: "CertifyBridge",
+    category: "EdTech",
+    description:
+      "EdTech platform that generates verified internship documentation for college students. Features automated document generation within 24 hours, online verification portal with unique certificate IDs, user dashboard, and Razorpay payment integration with tiered pricing.",
+    image: "/projects/certifybridge.jpg",
+    tech: ["Next.js", "TypeScript", "Razorpay", "Vercel", "Tailwind CSS"],
+    liveUrl: "https://www.certifybridge.me",
+    githubUrl: "#",
+    featured: true,
+  },
+  {
+    id: 9,
+    title: "Datrix",
+    category: "AI Platform",
+    description:
+      "AI-powered data organization platform that transforms scattered files and emails into clean, visual dashboards. Features multi-source integration, intelligent automation for information management, and real-time data processing for knowledge workers.",
+    image: "/projects/datrix.jpg",
+    tech: ["Next.js", "React", "AI/ML", "Data Processing", "Webpack"],
+    liveUrl: "https://datrix.app",
+    githubUrl: "#",
+    featured: true,
+  },
+  {
+    id: 10,
+    title: "StackRift",
+    category: "SaaS",
+    description:
+      "All-in-one freelance business management platform for creative agencies and studios. Features project tracking with Kanban/timeline views, branded invoicing, expense tracking, budget forecasting, and integrations with Slack, Asana, Zapier, and 9+ tools — trusted by 7,000+ users.",
+    image: "/projects/stackrift.jpg",
+    tech: ["Next.js", "React", "TypeScript", "SaaS", "Mobile Apps"],
+    liveUrl: "https://stackrift.app",
+    githubUrl: "#",
+    featured: true,
+  },
 ];
 
 export const services = [

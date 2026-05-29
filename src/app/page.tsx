@@ -5,6 +5,7 @@ import Services from "@/components/sections/Services";
 import Reviews from "@/components/sections/Reviews";
 import Contact from "@/components/sections/Contact";
 import FAQ from "@/components/sections/FAQ";
+import SeoContent from "@/components/SeoContent";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Reviews />
       <FAQ />
       <Contact />
+      <SeoContent />
     </>
   );
 }
