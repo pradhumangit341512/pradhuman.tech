@@ -79,7 +79,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 2.2 }}
-          className="text-lg sm:text-xl md:text-2xl text-foreground/80 font-medium max-w-2xl mx-auto mb-3"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground/80 font-semibold max-w-2xl mx-auto mb-4"
         >
           {personalInfo.title}
         </motion.p>
