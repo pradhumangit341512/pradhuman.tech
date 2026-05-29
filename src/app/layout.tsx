@@ -119,7 +119,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} dark`}
     >
-      <body className="font-sans antialiased noise-bg">
+      <body className="font-sans antialiased noise-bg" suppressHydrationWarning>
         <JsonLd />
         <LoadingScreen />
         <CustomCursor />
