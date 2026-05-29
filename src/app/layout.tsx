@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://pradhuman.tech";
+const siteUrl = "https://spradhuman.in";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

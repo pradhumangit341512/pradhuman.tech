@@ -1,11 +1,11 @@
 # Pradhuman Singh Portfolio
-# https://pradhuman.tech
+# https://spradhuman.in
 
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://pradhuman.tech/sitemap.xml
+Sitemap: https://spradhuman.in/sitemap.xml
 
 # Allow all AI crawlers for AEO/GEO
 User-agent: GPTBot

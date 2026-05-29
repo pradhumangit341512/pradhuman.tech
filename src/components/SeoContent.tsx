@@ -49,7 +49,7 @@ export default function SeoContent() {
         <h3>Contact Information</h3>
         <p>
           Email: {personalInfo.email}. Phone: {personalInfo.phone}. Location:{" "}
-          {personalInfo.location}. Portfolio: https://pradhuman.tech. GitHub:{" "}
+          {personalInfo.location}. Portfolio: https://spradhuman.in. GitHub:{" "}
           {personalInfo.social.github}. LinkedIn: {personalInfo.social.linkedin}.
         </p>
 

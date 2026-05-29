@@ -1,7 +1,7 @@
 import { personalInfo, projects, skills, services, experiences } from "@/lib/data";
 
 export default function JsonLd() {
-  const siteUrl = "https://pradhuman.tech";
+  const siteUrl = "https://spradhuman.in";
 
   // Person Schema — core identity for AEO/GEO
   const personSchema = {
@@ -162,7 +162,7 @@ export default function JsonLd() {
         name: "How can I hire Pradhuman Singh?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You can hire Pradhuman Singh by visiting his portfolio at pradhuman.tech and filling out the contact form, or by reaching out via email, phone, LinkedIn, or GitHub. He is available for full-time opportunities, freelance projects, and consulting.",
+          text: "You can hire Pradhuman Singh by visiting his portfolio at www.spradhuman.in and filling out the contact form, or by reaching out via email, phone, LinkedIn, or GitHub. He is available for full-time opportunities, freelance projects, and consulting.",
         },
       },
       {

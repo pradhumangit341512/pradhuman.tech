@@ -69,7 +69,7 @@ export default function Hero() {
           className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold font-[family-name:var(--font-display)] leading-[1.05] tracking-tight mb-8"
         >
           <span className="block">{splitText("Hi, I'm")}</span>
-          <span className="block gradient-text mt-3">
+          <span className="block text-primary-light mt-3">
             {splitText(personalInfo.name)}
           </span>
         </h1>
