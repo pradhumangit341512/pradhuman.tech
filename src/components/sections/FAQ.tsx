@@ -32,9 +32,9 @@ function FAQItem({
     >
       <button
         onClick={toggle}
-        className="w-full flex items-center justify-between p-5 text-left transition-colors duration-200"
+        className="w-full flex items-center justify-between p-4 sm:p-5 text-left transition-colors duration-200"
       >
-        <span className="font-medium text-foreground text-sm sm:text-base pr-4">{question}</span>
+        <span className="font-medium text-foreground text-sm sm:text-base pr-2 sm:pr-4">{question}</span>
         <ChevronDown
           size={18}
           className={`text-muted shrink-0 transition-all duration-300 ${
@@ -50,7 +50,7 @@ function FAQItem({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
           >
-            <p className="px-5 pb-5 text-muted text-sm leading-relaxed">{answer}</p>
+            <p className="px-4 sm:px-5 pb-4 sm:pb-5 text-muted text-sm leading-relaxed">{answer}</p>
           </motion.div>
         )}
       </AnimatePresence>

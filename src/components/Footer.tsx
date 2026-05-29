@@ -17,7 +17,7 @@ export default function Footer() {
 
   return (
     <footer className="relative border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold font-[family-name:var(--font-display)]">
@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="mt-8 pt-6 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
           <p className="text-muted text-xs flex items-center gap-1">
             Made with <Heart size={12} className="text-red-500 fill-red-500" /> by{" "}
             {personalInfo.name}

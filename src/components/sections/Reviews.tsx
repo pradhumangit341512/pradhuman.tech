@@ -36,7 +36,7 @@ function StarRating({ rating, interactive, onChange }: { rating: number; interac
 
 function ReviewCard({ review }: { review: ReviewData }) {
   return (
-    <div className="card p-8 relative min-h-[280px] flex flex-col justify-between">
+    <div className="card p-5 sm:p-8 relative min-h-[240px] sm:min-h-[280px] flex flex-col justify-between">
       <div>
         <Quote size={32} className="text-primary/10 absolute top-6 right-6" />
         <StarRating rating={review.rating} />
@@ -92,12 +92,12 @@ function ReviewForm({ onSubmit }: { onSubmit: (review: ReviewData) => void }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card p-7 space-y-4">
+    <form onSubmit={handleSubmit} className="card p-5 sm:p-7 space-y-4">
       <h3 className="text-lg font-bold font-[family-name:var(--font-display)]">
         Leave a Review
       </h3>
 
-      <div className="grid sm:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <input
           type="text"
           placeholder="Your Name"
@@ -199,7 +199,7 @@ export default function Reviews() {
           description="Hear from clients and colleagues about their experience working with me"
         />
 
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}

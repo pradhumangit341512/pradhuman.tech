@@ -71,7 +71,7 @@ function ProcessStep({
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.12 }}
-      className="relative flex gap-5 group"
+      className="relative flex gap-3 sm:gap-5 group"
     >
       <div className="flex flex-col items-center">
         <div className="w-11 h-11 rounded-full bg-primary/10 border-2 border-primary/25 flex items-center justify-center font-bold font-mono text-sm text-primary-light group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">
@@ -101,7 +101,7 @@ export default function Services() {
           description="End-to-end solutions tailored to bring your vision to life"
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-16 sm:mb-24">
           {services.map((service, i) => (
             <ServiceCard key={service.title} {...service} index={i} />
           ))}

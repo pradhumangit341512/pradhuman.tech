@@ -36,7 +36,7 @@ function ProjectCard({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(124,58,237,0.12),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(6,182,212,0.08),transparent_50%)]" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-7xl font-bold font-[family-name:var(--font-display)] text-foreground/[0.04] group-hover:text-foreground/[0.08] transition-all duration-700 group-hover:scale-125">
+          <span className="text-5xl sm:text-7xl font-bold font-[family-name:var(--font-display)] text-foreground/[0.04] group-hover:text-foreground/[0.08] transition-all duration-700 group-hover:scale-125">
             {title.charAt(0)}
           </span>
         </div>
@@ -74,7 +74,7 @@ function ProjectCard({
           />
         </h3>
         <p className="text-muted text-sm mt-2 line-clamp-2 leading-relaxed">{description}</p>
-        <div className="flex flex-wrap gap-1.5 mt-4">
+        <div className="flex flex-wrap gap-1 sm:gap-1.5 mt-3 sm:mt-4">
           {tech.map((t) => (
             <span key={t} className="tag">{t}</span>
           ))}
@@ -121,7 +121,7 @@ export default function Projects() {
           <motion.div
             key={activeCategory}
             layout
-            className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6"
           >
             {filtered.map((project, i) => (
               <ProjectCard key={project.id} {...project} index={i} />

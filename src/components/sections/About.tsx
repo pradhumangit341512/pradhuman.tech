@@ -94,7 +94,7 @@ export default function About() {
           description="A passionate developer dedicated to creating exceptional digital experiences"
         />
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div ref={aboutRef}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -104,7 +104,7 @@ export default function About() {
             >
               <p className="text-muted text-base sm:text-lg leading-relaxed">{personalInfo.bio}</p>
 
-              <div className="flex flex-wrap gap-5 text-sm">
+              <div className="flex flex-wrap gap-4 sm:gap-5 text-xs sm:text-sm">
                 <span className="flex items-center gap-2 text-muted">
                   <MapPin size={15} className="text-primary-light" />
                   {personalInfo.location}

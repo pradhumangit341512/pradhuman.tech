@@ -60,7 +60,7 @@ export default function Contact() {
           description="Have a project in mind? Let's discuss how I can help bring your vision to life"
         />
 
-        <div className="grid lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10">
           {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -136,9 +136,9 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.15 }}
             onSubmit={handleSubmit}
-            className="lg:col-span-3 card p-7 space-y-4"
+            className="lg:col-span-3 card p-5 sm:p-7 space-y-4"
           >
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="text-xs text-muted mb-1.5 block font-medium uppercase tracking-wider">
                   Name

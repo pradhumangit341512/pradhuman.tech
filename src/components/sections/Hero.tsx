@@ -48,7 +48,7 @@ export default function Hero() {
       {/* Gradient overlay for readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/70 to-background z-[1]" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
         {/* Status badge */}
         <motion.div
           initial={{ opacity: 0, y: 15, filter: "blur(8px)" }}
@@ -66,7 +66,7 @@ export default function Hero() {
         {/* Heading */}
         <h1
           ref={headingRef}
-          className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold font-[family-name:var(--font-display)] leading-[1.05] tracking-tight mb-8"
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-[5.5rem] font-bold font-[family-name:var(--font-display)] leading-[1.05] tracking-tight mb-6 sm:mb-8"
         >
           <span className="block">{splitText("Hi, I'm")}</span>
           <span className="block text-primary-light mt-3">
@@ -79,7 +79,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 2.2 }}
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground/80 font-semibold max-w-2xl mx-auto mb-4"
+          className="text-base sm:text-xl md:text-2xl lg:text-3xl text-foreground/80 font-semibold max-w-2xl mx-auto mb-3 sm:mb-4"
         >
           {personalInfo.title}
         </motion.p>
