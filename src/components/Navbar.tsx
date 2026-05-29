@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { personalInfo } from "@/lib/data";
-import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -56,48 +55,45 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <button
             onClick={() => handleClick("#home")}
-            className="text-2xl font-bold font-[family-name:var(--font-display)] relative group"
+            className="text-xl font-bold font-[family-name:var(--font-display)] relative group"
           >
             <span className="gradient-text">{personalInfo.name.split(" ")[0]}</span>
             <span className="text-muted">.</span>
             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-primary-light to-accent group-hover:w-full transition-all duration-300" />
           </button>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={() => handleClick(link.href)}
-                className="relative text-sm text-muted hover:text-foreground transition-colors duration-300 group"
+                className="relative text-[13px] text-muted hover:text-foreground transition-colors duration-300"
               >
                 {link.name}
                 {activeSection === link.href.replace("#", "") && (
                   <motion.span
                     layoutId="navbar-indicator"
                     className="absolute -bottom-1 left-0 right-0 h-[2px] bg-primary-light rounded-full"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
               </button>
             ))}
-            <ThemeToggle />
             <button
               onClick={() => handleClick("#contact")}
-              className="px-5 py-2 bg-primary hover:bg-primary-light text-white text-sm rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
+              className="btn-primary text-[13px] py-2 px-5"
             >
               Hire Me
             </button>
           </div>
 
-          <div className="flex items-center gap-3 md:hidden">
-            <ThemeToggle />
-            <button
-              className="text-foreground p-2"
-              onClick={() => setMobileOpen(!mobileOpen)}
-            >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <button
+            className="md:hidden text-foreground p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
       </motion.nav>
 
@@ -107,21 +103,30 @@ export default function Navbar() {
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8"
+            transition={{ duration: 0.35, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-2xl flex flex-col items-center justify-center gap-7"
           >
             {navLinks.map((link, i) => (
               <motion.button
                 key={link.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: i * 0.08 }}
                 onClick={() => handleClick(link.href)}
-                className="text-3xl font-[family-name:var(--font-display)] text-foreground hover:text-primary-light transition-colors"
+                className="text-2xl font-[family-name:var(--font-display)] text-foreground hover:text-primary-light transition-colors duration-200"
               >
                 {link.name}
               </motion.button>
             ))}
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navLinks.length * 0.08 }}
+              onClick={() => handleClick("#contact")}
+              className="btn-primary mt-4"
+            >
+              Hire Me
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

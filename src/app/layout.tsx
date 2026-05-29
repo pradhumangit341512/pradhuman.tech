@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
-import ThemeProvider from "@/components/ThemeProvider";
 import JsonLd from "@/components/JsonLd";
 
 const inter = Inter({
@@ -107,11 +106,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    // Add your verification codes here
-    // google: "your-google-verification-code",
-    // yandex: "your-yandex-verification-code",
-  },
   category: "technology",
 };
 
@@ -126,16 +120,14 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} dark`}
     >
       <body className="font-sans antialiased noise-bg">
-        <ThemeProvider>
-          <JsonLd />
-          <LoadingScreen />
-          <CustomCursor />
-          <Navbar />
-          <SmoothScroll>
-            <main>{children}</main>
-          </SmoothScroll>
-          <Footer />
-        </ThemeProvider>
+        <JsonLd />
+        <LoadingScreen />
+        <CustomCursor />
+        <Navbar />
+        <SmoothScroll>
+          <main>{children}</main>
+        </SmoothScroll>
+        <Footer />
       </body>
     </html>
   );
