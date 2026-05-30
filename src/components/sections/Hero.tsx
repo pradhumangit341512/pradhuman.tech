@@ -5,9 +5,11 @@ import { motion } from "framer-motion";
 import { ArrowDown, Download, Send } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 import dynamic from "next/dynamic";
-import gsap from "gsap";
 
-const Scene3D = dynamic(() => import("@/components/Scene3D"), { ssr: false });
+const Scene3D = dynamic(() => import("@/components/Scene3D"), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 z-0 bg-background" />,
+});
 
 export default function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -15,7 +17,9 @@ export default function Hero() {
   useEffect(() => {
     if (!headingRef.current) return;
 
-    const chars = headingRef.current.querySelectorAll(".char");
+    const animate = async () => {
+      const chars = headingRef.current!.querySelectorAll(".char");
+      const gsap = (await import("gsap")).default;
     gsap.fromTo(
       chars,
       { y: 80, opacity: 0, rotateX: -80 },
@@ -29,6 +33,8 @@ export default function Hero() {
         delay: 1.6,
       }
     );
+    };
+    animate();
   }, []);
 
   const splitText = (text: string) =>

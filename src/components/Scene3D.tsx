@@ -1,13 +1,13 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Sphere } from "@react-three/drei";
-import * as THREE from "three";
+import type * as THREE_NS from "three";
 
 function ParticleField() {
-  const pointsRef = useRef<THREE.Points>(null);
-  const count = 2000;
+  const pointsRef = useRef<THREE_NS.Points>(null);
+  const count = 1500;
 
   const positions = useMemo(() => {
     const pos = new Float32Array(count * 3);
@@ -47,7 +47,7 @@ function ParticleField() {
 }
 
 function FloatingSphere() {
-  const meshRef = useRef<THREE.Mesh>(null);
+  const meshRef = useRef<THREE_NS.Mesh>(null);
 
   useFrame((state) => {
     if (meshRef.current) {
@@ -58,7 +58,7 @@ function FloatingSphere() {
 
   return (
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
-      <Sphere ref={meshRef} args={[1.5, 64, 64]} position={[2, 0, -2]}>
+      <Sphere ref={meshRef} args={[1.5, 32, 32]} position={[2, 0, -2]}>
         <MeshDistortMaterial
           color="#6d28d9"
           roughness={0.2}
@@ -74,7 +74,7 @@ function FloatingSphere() {
 }
 
 function GlowingRing() {
-  const ringRef = useRef<THREE.Mesh>(null);
+  const ringRef = useRef<THREE_NS.Mesh>(null);
 
   useFrame((state) => {
     if (ringRef.current) {
@@ -85,19 +85,30 @@ function GlowingRing() {
 
   return (
     <mesh ref={ringRef} position={[-2, 0.5, -1]}>
-      <torusGeometry args={[1.2, 0.02, 16, 100]} />
+      <torusGeometry args={[1.2, 0.02, 12, 64]} />
       <meshStandardMaterial color="#06b6d4" emissive="#06b6d4" emissiveIntensity={2} />
     </mesh>
   );
 }
 
 export default function Scene3D() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const id = setTimeout(() => setVisible(true), 100);
+    return () => clearTimeout(id);
+  }, []);
+
+  if (!visible) return <div className="absolute inset-0 z-0" />;
+
   return (
     <div className="absolute inset-0 z-0">
       <Canvas
         camera={{ position: [0, 0, 6], fov: 60 }}
-        gl={{ antialias: true, alpha: true }}
+        gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
         dpr={[1, 1.5]}
+        frameloop="always"
+        performance={{ min: 0.5 }}
       >
         <ambientLight intensity={0.3} />
         <pointLight position={[10, 10, 10]} intensity={0.8} color="#8b5cf6" />
