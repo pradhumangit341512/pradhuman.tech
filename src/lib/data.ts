@@ -4,14 +4,14 @@ export const personalInfo = {
   tagline:
     "I build production-grade web platforms, SaaS products, and AI-powered applications that help businesses scale",
   location: "Jaipur, India",
-  email: "pradhuman@example.com",
-  phone: "+91 XXXXXXXXXX",
+  email: "singhpradhuman077@gmail.com",
+  phone: "+91 9116346573",
   bio: "Full Stack Developer currently building digital products at Sarvaya — a digital agency delivering custom web solutions, AI automations, and SEO strategies for businesses worldwide. I've shipped real-estate CRMs handling thousands of leads, AI voice platforms processing sub-100ms responses, hospitality booking systems, and agency platforms serving clients across India, US, UK, and Australia. I care deeply about performance, clean architecture, and building things that actually move the needle for businesses.",
   resumeUrl: "#",
   social: {
-    github: "https://github.com/pradhumansingh",
-    linkedin: "https://linkedin.com/in/pradhumansingh",
-    twitter: "https://twitter.com/pradhumansingh",
+    github: "https://github.com/pradhumangit341512",
+    linkedin: "https://www.linkedin.com/in/singhpradhuman/",
+    twitter: "https://twitter.com/pradhuman341512",
   },
 };
 
@@ -35,7 +35,7 @@ export const experiences = [
   {
     role: "Full Stack Developer",
     company: "Sarvaya",
-    period: "2024 - Present",
+    period: "2025 - Present",
     description:
       "Building production-grade web applications and AI automation solutions at a digital agency serving clients across India, US, UK, and Australia. Developing custom-coded websites, managing end-to-end project delivery, and implementing SEO & AEO strategies. Part of a team that has delivered 45+ projects with a 5.0-star client rating.",
     tech: ["Next.js", "TypeScript", "Node.js", "MongoDB", "AI Automation", "SEO"],
@@ -43,7 +43,7 @@ export const experiences = [
   {
     role: "Full Stack Developer",
     company: "Beyond Karma AI",
-    period: "2024",
+    period: "2025",
     description:
       "Contributed to building the web platform for an enterprise AI company specializing in voice AI and intelligent automation. Worked on the frontend architecture for their AI Medical Receptionist, speech-to-speech pipeline interfaces, and product marketing pages.",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "AI/ML"],
@@ -51,7 +51,7 @@ export const experiences = [
   {
     role: "Freelance Developer",
     company: "Self-Employed",
-    period: "2022 - 2024",
+    period: "2022 - Present",
     description:
       "Built custom websites and web applications for clients across real estate, hospitality, and tech industries. Delivered projects like Broker365 CRM, Ummed Haveli hotel website, and multiple business platforms from concept to production.",
     tech: ["React", "Node.js", "MongoDB", "WordPress", "Vercel"],
